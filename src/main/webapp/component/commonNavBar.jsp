@@ -59,7 +59,7 @@
               Admin Panel
             </button>
             <ul class="dropdown-menu dropdown-menu-start">
-              <li><a class="dropdown-item" href="receptionLogin.jsp">Reception</a></li>
+              <li><a class="dropdown-item" href="resiptionLogin.jsp">Reception</a></li>
               <li><a class="dropdown-item" href="adminLogin.jsp">Admin</a></li>
             </ul>
           </div>
