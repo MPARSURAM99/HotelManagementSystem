@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,4 +12,4 @@
 	<%@include file="component/commonNavBar.jsp" %>
 </body>
 </html>
->>>>>>> 140a4c8c9de3104e932e86bca8217fb197cdc589
+
