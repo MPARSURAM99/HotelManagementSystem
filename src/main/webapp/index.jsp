@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="component/bootStrapLink.jsp" %>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<%@include file="component/commonNavBar.jsp" %>
 </body>
 </html>
