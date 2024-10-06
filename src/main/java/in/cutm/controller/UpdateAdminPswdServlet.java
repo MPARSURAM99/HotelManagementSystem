@@ -1,5 +1,3 @@
-
-
 package in.cutm.controller;
 
 import java.io.IOException;
@@ -15,22 +13,26 @@ import in.cutm.dbConnection.ConnectDB;
 import in.cutm.model.AdminCredential;
 
 @SuppressWarnings("serial")
-@WebServlet("/adminLogin")
-public class AdminLoginServlet extends HttpServlet {
+@WebServlet("/updatePassword")
+public class UpdateAdminPswdServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		javax.servlet.http.HttpSession session =  req.getSession();
-		String adminEmail = req.getParameter("adminEmail");
-		String adminPassword = req.getParameter("adminPassword");
+		String userName = req.getParameter("newUsername");
+		String email = req.getParameter("newEmail");
+		String password = req.getParameter("newPassword");
 		
-		AdminCredential addCred = new AdminCredential(adminEmail, adminPassword);
+		AdminCredential addCred = new AdminCredential(userName, email, password);
+		
 		AdminCredentialDao daoAdmin = new AdminCredentialDao(ConnectDB.dbconnect());
-
-		if (daoAdmin.isLoginSuccessful(addCred)) {
-			resp.sendRedirect("adminDashboard.jsp");
-		} else {
-			session.setAttribute("loginFailMsg", "Invalid Credential....!");
+		
+		javax.servlet.http.HttpSession session = req.getSession();
+		
+		if (daoAdmin.isPasswordUpdated(addCred)) {
+			session.setAttribute("updateAdminSessionMsg", "Password Updated successfully...");
 			resp.sendRedirect("adminLogin.jsp");
+		} else {
+			session.setAttribute("updateFailMsg", "Update failed please update again..!!");
+			resp.sendRedirect("updateAdminPassword.jsp");
 		}
 	}
 }
