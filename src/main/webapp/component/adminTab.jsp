@@ -10,7 +10,7 @@
     <a class="nav-link active me-2" href="addBranch.jsp">Add Branch</a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link active me-2" href="#">Add Room</a>
+    <a class="nav-link active me-2" href="addRoom.jsp">Add Room</a>
   </li>
   <li class="nav-item ">
     <a class="nav-link active me-2" aria-disabled="true">Total Income</a>
