@@ -81,20 +81,19 @@ body {
 <body>
 	<%@include file="component/commonNavBar.jsp"%>
 	<div class="login-container">
+		<h2>Admin Login</h2>
 
 		<c:if test="${not empty loginFailMsg }">
-			<p class="text-center text-success">${loginFailMsg}</p>
+			<p class="text-center text-danger">${loginFailMsg}</p>
 			<c:remove var="loginFailMsg" />
 		</c:if>
 
-
-		<h2>Admin Login</h2>
 		<form action="adminLogin" method="post">
-			<input type="text" name="adminUserName" class="form-control"
+			<input type="text" name="adminEmail" class="form-control"
 				placeholder="Email" required> <input type="password"
 				name="adminPassword" class="form-control" placeholder="Password"
-				required><br>
-			<br> <input type="submit" class="btn btn-primary" value="Login">
+				required><br> <br> <input type="submit"
+				class="btn btn-primary" value="Login">
 		</form>
 
 	</div>

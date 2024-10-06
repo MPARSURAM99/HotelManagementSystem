@@ -19,7 +19,7 @@ public class AdminLoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		javax.servlet.http.HttpSession session =  req.getSession();
-		String adminEmail = req.getParameter("adminUserName");
+		String adminEmail = req.getParameter("adminEmail");
 		String adminPassword = req.getParameter("adminPassword");
 
 		AdminCredentialDao daoAdmin = new AdminCredentialDao(ConnectDB.dbconnect());
