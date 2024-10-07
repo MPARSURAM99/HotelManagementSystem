@@ -82,6 +82,10 @@ body {
 	<%@include file="component/commonNavBar.jsp"%>
 	<div class="login-container">
 		<h2>Admin Login</h2>
+		<c:if test="${not empty updateAdminSessionMsg }">
+			<p class="text-center text-success">${updateAdminSessionMsg}</p>
+			<c:remove var="updateAdminSessionMsg" />
+		</c:if>
 
 		<c:if test="${not empty loginFailMsg }">
 			<p class="text-center text-danger">${loginFailMsg}</p>

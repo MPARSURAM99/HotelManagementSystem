@@ -1,17 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Insert title here</title>
-        <%@ include file="component/bootStrapLink.jsp" %>
-            <%@ include file="component/fontAwesome.jsp" %>
-    </head>
+<%@ include file="component/jstlTag.jsp"%>
+<!DOCTYPE html>
+<html>
 
-    <body>
-        <%@include file="component/commonNavBar.jsp" %>
-            <%@include file="component/adminTab.jsp" %>
-    </body>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%@ include file="component/bootStrapLink.jsp"%>
+<%@ include file="component/fontAwesome.jsp"%>
+</head>
 
-    </html>
+<body>
+	<%@include file="component/commonNavBar.jsp"%>
+	<%@include file="component/adminTab.jsp"%>
+
+
+</body>
+
+</html>
