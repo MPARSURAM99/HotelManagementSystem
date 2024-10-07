@@ -25,6 +25,11 @@
                     .container {
                         margin-top: 170px;
                     }
+                    
+                    .container h3 {
+	                  margin-bottom: 20px;
+	                  color: #0d6efd;
+}
                 </style>
 
     </head>
@@ -37,34 +42,12 @@
                     <div class="form-container">
                         <h3 class="text-center mb-4">Add New Branch</h3>
                         <form action="processAddBranch.jsp" method="post">
-                            <!-- Branch Name -->
+
                             <div class="form-group mb-3">
-                                <label for="branchName">Branch Name</label>
+                                <label for="branchName"></label>
                                 <input type="text" class="form-control" id="branchName" name="branchName"
                                     placeholder="Enter branch name" required>
                             </div>
-
-
-                            <div class="form-group mb-3">
-                                <label for="address">Address</label>
-                                <textarea class="form-control" id="address" name="address"
-                                    placeholder="Enter branch address" rows="3" required></textarea>
-                            </div>
-
-
-                            <div class="form-group mb-3">
-                                <label for="contactNumber">Contact Number</label>
-                                <input type="text" class="form-control" id="contactNumber" name="contactNumber"
-                                    placeholder="Enter contact number" required>
-                            </div>
-
-
-                            <div class="form-group mb-3">
-                                <label for="managerName">Manager Name</label>
-                                <input type="text" class="form-control" id="managerName" name="managerName"
-                                    placeholder="Enter manager's name" required>
-                            </div>
-
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Add Branch</button>
