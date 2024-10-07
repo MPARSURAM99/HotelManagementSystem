@@ -44,7 +44,7 @@
               Book Now
             </button>
             <ul class="dropdown-menu dropdown-menu-start">
-              <li><a class="dropdown-item" href="bookNow.jsp">Book Now</a></li>
+              <li><a class="dropdown-item" href="searchRoom.jsp">Book Now</a></li>
               <li><a class="dropdown-item" href="bookingDetails.jsp">Booking details</a></li>
             </ul>
           </div>
