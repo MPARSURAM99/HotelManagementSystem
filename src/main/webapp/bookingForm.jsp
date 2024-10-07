@@ -87,12 +87,7 @@ h1 {
 								<label>Contact</label> <input type="text" name="contact"
 									class="form-control">
 							</div>
-							<br>
-							<div class="form-group form-inline">
-								<label>RoomType</label> <input type="text" name="roomtype"
-									class="form-control">
-
-							</div>
+							
 							<br>
 							<div class="d-flex justify-content-center mt-4">
 								<button type="submit" class="btn btn-primary w-100">Book</button>
