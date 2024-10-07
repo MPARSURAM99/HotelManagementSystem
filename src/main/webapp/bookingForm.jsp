@@ -89,7 +89,8 @@ h1 {
 							</div>
 							<br>
 							<div class="form-group form-inline">
-								<label>RoomType</label>
+								<label>RoomType</label> <input type="text" name="roomtype"
+									class="form-control">
 
 							</div>
 							<br>
