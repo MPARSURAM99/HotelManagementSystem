@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ include file="component/jstlTag.jsp" %>
+<%@ include file="component/jstlTag.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -28,9 +28,9 @@ body {
 .container {
 	margin-top: 170px;
 }
+
 .container h3 {
-	                
-   color: #0d6efd;
+	color: #0d6efd;
 }
 </style>
 </head>
@@ -47,12 +47,13 @@ body {
 				<p class="text-center text-danger">${updateFailMsg}</p>
 				<c:remove var="updateFailMsg" />
 			</c:if>
-			<form action="updatePassword" method="post">
+			<form action="updatePassword" method="post"
+				enctype="multipart/form-data">
 
 				<div class="form-group mb-3">
 					<label for="username">Username</label> <input type="text"
-						class="form-control" id="username" name="newUsername" value="Admin"
-						placeholder="Enter your username" required>
+						class="form-control" id="username" name="newUsername"
+						value="Admin" placeholder="Enter your username" required>
 				</div>
 				<div class="form-group mb-3">
 					<label for="email">New Email</label> <input type="email"
@@ -75,6 +76,12 @@ body {
 		</div>
 	</div>
 
+	<script>
+		document.querySelector('form').onsubmit = function() {
+			var roomNumber = document.getElementById('roomNumber').value;
+			console.log('Room Number before submit:', roomNumber);
+		};
+	</script>
 </body>
 
 </html>

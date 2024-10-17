@@ -13,9 +13,9 @@ public class ConnectDB {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// Correct JDBC URL format for MySQL
-			String url = "jdbc:mysql://sql10.freesqldatabase.com:3306/sql10734890";
-			String user = "sql10734890";
-			String password = "fwPp2yhExw";
+			String url = "jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/hotel_management_system";
+			String user = "23wkAnXFRjvR8mG.root";
+			String password = "c12g0FHjDC3OY20W";
 
 			// Establish connection
 			con = DriverManager.getConnection(url, user, password);
