@@ -4,6 +4,8 @@
 <%@page import="in.cutm.dao.LocationDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ include file="component/jstlTag.jsp" %>
 <!DOCTYPE html>
 <html>
 
@@ -44,8 +46,18 @@ body {
 	<div class="container">
 		<div class="form-container">
 			<h3 class="text-center mb-4">Add New Room</h3>
-			<form action="processAddRoom.jsp" method="post"
-				enctype="multipart/form-data">
+			
+			<c:if test="${not empty addRoomMsg }">
+			<p class="text-center text-success">${addRoomMsg}</p>
+			<c:remove var="addRoomMsg" />
+			</c:if>
+
+			<c:if test="${not empty failRommAddition }">
+			<p class="text-center text-success">${failRommAddition}</p>
+			<c:remove var="failRommAddition" />
+			</c:if>
+			
+			<form action="addNewRoom" method="post" enctype="multipart/form-data">
 				<div class="form-group mb-3">
 					<label for="location">Location</label> <select class="form-select"
 						aria-label="Default select example" id="location" name="location">
@@ -79,7 +91,7 @@ body {
 
 				<div class="form-group mb-3">
 					<label for="roomType">Category</label> <select class="form-select"
-						aria-label="Default select example" id="roomType" name="roomType"
+						aria-label="Default select example" id="roomType" name="category"
 						required>
 						<option value="">Select room type</option>
 						<option value="Deluxe">Deluxe</option>
@@ -103,53 +115,54 @@ body {
 
 				<div class="form-group mb-3">
 					<label for="AC">AC</label> <select class="form-select"
-						aria-label="Default select example" id="AC" name="AC">
+						aria-label="Default select example" id="AC" name="ac">
 						<option selected>Open this select menu</option>
-						<option value="1">Available</option>
-						<option value="2">NA</option>
+						<option value="Available">Available</option>
+						<option value="NA">NA</option>
 					</select>
 				</div>
 
 				<div class="form-group mb-3">
 					<label for="Meal">Meal</label> <select class="form-select"
-						aria-label="Default select example" id="Meal" name="Meal">
+						aria-label="Default select example" id="Meal" name="meal">
 						<option selected>Open this select menu</option>
-						<option value="1">Available</option>
-						<option value="2">NA</option>
+						<option value="Available">Available</option>
+						<option value="NA">NA</option>
 					</select>
 				</div>
 
 				<div class="form-group mb-3">
 					<label for="Wifi">Wifi</label> <select class="form-select"
-						aria-label="Default select example" id="Wifi" name="Wifi">
+						aria-label="Default select example" id="Wifi" name="wifi">
 						<option selected>Open this select menu</option>
-						<option value="1">Available</option>
-						<option value="2">NA</option>
+						<option value="Available">Available</option>
+						<option value="NA">NA</option>
 					</select>
 				</div>
 
 				<div class="form-group mb-3">
 					<label for="Couple">Couple</label> <select class="form-select"
-						aria-label="Default select example" id="Couple" name="Couple">
+						aria-label="Default select example" id="Couple" name="couple">
 						<option selected>Open this select menu</option>
-						<option value="1">Allow</option>
-						<option value="2">NA</option>
+						<option value="Allowed">Allowed</option>
+						<option value="NA">NA</option>
 					</select>
 				</div>
 
 				<div class="form-group mb-3">
 					<label for="Parking">Parking</label> <select class="form-select"
-						aria-label="Default select example" id="Parking" name="Parking">
+						aria-label="Default select example" id="Parking" name="parking">
 						<option selected>Open this select menu</option>
-						<option value="1">Available</option>
-						<option value="2">NA</option>
+						<option value="Available">Available</option>
+						<option value="NA">NA</option>
 					</select>
 				</div>
 
 
 				<div class="form-group mb-3">
 					<label for="roomImage">Room Image</label> <input type="file"
-						class="form-control" id="roomImage" name="roomImage" required>
+						class="form-control" id="roomImage" name="roomImage"
+						accept="image/*" required>
 				</div>
 
 				<div class="form-group mb-3">

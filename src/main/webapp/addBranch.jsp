@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ include file="component/jstlTag.jsp" %>
+<%@ include file="component/jstlTag.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -47,6 +47,11 @@ body {
 			<c:if test="${not empty addLocMsg }">
 				<p class="text-center text-success">${addLocMsg}</p>
 				<c:remove var="addLocMsg" />
+			</c:if>
+
+			<c:if test="${not empty addRoomFailMsg }">
+				<p class="text-center text-success">${addRoomFailMsg}</p>
+				<c:remove var="addRoomFailMsg" />
 			</c:if>
 			<form action="addBranch" method="post">
 

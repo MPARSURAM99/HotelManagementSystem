@@ -495,5 +495,10 @@ charset=UTF-8" pageEncoding="UTF-8" %>
         </div>
       </div>
     </section>
+    
+    <%
+		Connection con = ConnectDB.dbconnect();
+		out.print(con);
+	%>
   </body>
 </html>
