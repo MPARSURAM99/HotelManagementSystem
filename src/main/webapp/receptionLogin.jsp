@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="in.cutm.dbConnection.ConnectDB"%>
 <%@page import="in.cutm.dao.LocationDao"%>
+<%@ include file="component/jstlTag.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -83,10 +84,16 @@
 <body>
 <%@include file="component/commonNavBar.jsp" %>
 <div class="login-container">
+
+
         <h2>Reception Login</h2>
-        <form action="Login" method="post">
+        <c:if test="${not empty loginFailMsg }">
+			<p class="text-center text-danger">${loginFailMsg}</p>
+			<c:remove var="loginFailMsg" />
+		</c:if>
+        <form action="receptionLogin" method="post">
           <select class="form-select"
-						aria-label="Default select example" id="location" name="location">
+						aria-label="Default select example" id="location" name="receptionLocation">
 						<option value="" selected disabled>Please select a
 							location</option>
 
@@ -102,7 +109,7 @@
 						%>
 						
 		 </select>
-            <input type="password" name="password" class="form-control" placeholder="Password" required><br><br>
+            <input type="password" name="receptionPassword" class="form-control" placeholder="Password" required><br><br>
             <input type="submit" class="btn btn-primary" value="Login">
         </form>
         <a href="#">Forgot Password?</a>
