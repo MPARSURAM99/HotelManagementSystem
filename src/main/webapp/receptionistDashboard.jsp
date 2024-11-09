@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+q<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -32,7 +32,7 @@
 <body>
     <%-- Include common navigation and tabs --%>
     <%@ include file="component/commonNavBar.jsp"%>
-  
+      <%@ include file="component/receptionNavbar.jsp"%>
 
     <div class="container">
         <div class="welcome-msg">
