@@ -18,8 +18,9 @@ public class AddBranchServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String location = req.getParameter("branchName");
+		String branchPassword = req.getParameter("brancPassword");
 		
-		Location loc = new Location(location);
+		Location loc = new Location(location, branchPassword);
 		
 		LocationDao daoLoc = new LocationDao(ConnectDB.dbconnect());
 		

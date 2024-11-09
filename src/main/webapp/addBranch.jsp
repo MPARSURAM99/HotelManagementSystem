@@ -60,6 +60,12 @@ body {
 						class="form-control" id="branchName" name="branchName"
 						placeholder="Enter branch name" required>
 				</div>
+				
+				<div class="form-group mb-3">
+						<input type="text"
+						class="form-control" id="branchName" name="brancPassword"
+						placeholder="Enter branch password" required>
+				</div>
 
 				<div class="text-center">
 					<button type="submit" class="btn btn-primary">Add Branch</button>

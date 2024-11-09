@@ -31,13 +31,13 @@ input[id="toDate"]:focus:before, input[id="toDate"]:valid:before {
 
 
 
-<form action="" class="p-4" style="margin-top: 80px;">
+<form action="searchRoom" class="p-4" style="margin-top: 80px;">
 	<div class="input-group mb-3">
 		<div class="input-group-text">
 			<i class="fa-solid fa-calendar-days text-primary"></i>
 		</div>
 		<input type="date" class="form-control"
-			aria-label="Text input with checkbox" id="fromDate" />
+			aria-label="Text input with checkbox" id="fromDate" name="fromDate"/>
 	</div>
 
 	<div class="input-group mb-3">
@@ -45,7 +45,7 @@ input[id="toDate"]:focus:before, input[id="toDate"]:valid:before {
 			<i class="fa-solid fa-calendar-days text-primary"></i>
 		</div>
 		<input type="date" class="form-control"
-			aria-label="Text input with checkbox" id="toDate" />
+			aria-label="Text input with checkbox" id="toDate" name="toDate"/>
 	</div>
 
 	<div class="input-group mb-3">

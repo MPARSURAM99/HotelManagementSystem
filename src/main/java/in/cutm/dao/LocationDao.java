@@ -23,11 +23,12 @@ public class LocationDao {
 
 		try {
 			// SQL query to insert location data
-			String addLocQuery = "INSERT INTO hotel_location (location) VALUES (?)";
+			String addLocQuery = "INSERT INTO hotel_location (location, password) VALUES (?, ?)";
 			PreparedStatement ps = con.prepareStatement(addLocQuery);
 
 			// Set the location value in the query
 			ps.setString(1, locData.getBranchName());
+			ps.setString(2, locData.getBranchPassword());
 
 			// Execute the update
 			int i = ps.executeUpdate();
