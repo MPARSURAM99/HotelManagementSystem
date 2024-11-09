@@ -1,3 +1,6 @@
+<%@page import="in.cutm.model.Room"%>
+<%@page import="in.cutm.dbConnection.ConnectDB"%>
+<%@page import="in.cutm.dao.SearchRoomDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,6 +41,13 @@ h1 {
 </head>
 <body class="bg-light"">
 	<%@include file="component/commonNavBar.jsp"%>
+	
+	<%
+		int roomId = Integer.parseInt(request.getParameter("id"));
+		SearchRoomDao srhRmDao = new SearchRoomDao(ConnectDB.dbconnect());
+		Room rm = srhRmDao.getRoomById(roomId);
+	%>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
@@ -47,23 +57,16 @@ h1 {
 							<h1>Book a Room</h1>
 							<br>
 							<div class="form-group form-inline">
-								<label>location</label> <input type="text" name="location"
+								<label>location</label> <input type="text" name="location" value="<%= rm.getLocation() %>"
 									class="form-control">
 							</div>
 							<br>
 							<div class="form-group form-inline">
 								<label>RoomId</label> <input type="text" name="roomid"
-									class="form-control" value="roja840">
+									class="form-control" value="<%= rm.getRoomId()%>">
 							</div>
-							<br> <label>category</label> <select id="roomtype"
-								name="roomtype" class="form-control">
-
-								<option value="" disabled selected>Select Room Type</option>
-								<option value="suite">Dulble Dulux</option>
-								<option value="single">Dulux</option>
-								<option value="double">Suit</option>
-								<option value="suite">Normal</option>
-							</select><br>
+							<br> <label>category</label><input type="text" name="roomCategory"
+									class="form-control" value="<%= rm.getCategory()%>"> <br>
 							<div class="form-group form-inline">
 								<label>Date from</label> <input type="date" name="location"
 									class="form-control">

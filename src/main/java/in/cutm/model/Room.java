@@ -1,7 +1,5 @@
 package in.cutm.model;
 
-import java.io.InputStream;
-
 public class Room {
 	private int id;
 	private String location;
@@ -14,16 +12,17 @@ public class Room {
 	private String wifi;
 	private String couple;
 	private String parking;
-	private InputStream photo;
+	private byte[] photo;
 	private String status;
-	
+
 	public Room() {
 		super();
 	}
 
-	public Room(String location, int roomId, String category, int capacity, double price, String ac, String meal,
-			String wifi, String couple, String parking, InputStream photo, String status) {
+	public Room(int id, String location, int roomId, String category, int capacity, double price, String ac,
+			String meal, String wifi, String couple, String parking, byte[] photo, String status) {
 		super();
+		this.id = id;
 		this.location = location;
 		this.roomId = roomId;
 		this.category = category;
@@ -38,10 +37,9 @@ public class Room {
 		this.status = status;
 	}
 
-	public Room(int id, String location, int roomId, String category, int capacity, double price, String ac,
-			String meal, String wifi, String couple, String parking, InputStream photo, String status) {
+	public Room(String location, int roomId, String category, int capacity, double price, String ac, String meal,
+			String wifi, String couple, String parking, byte[] photo, String status) {
 		super();
-		this.id = id;
 		this.location = location;
 		this.roomId = roomId;
 		this.category = category;
@@ -144,11 +142,11 @@ public class Room {
 		this.parking = parking;
 	}
 
-	public InputStream getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(InputStream photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 
@@ -159,6 +157,5 @@ public class Room {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
 }

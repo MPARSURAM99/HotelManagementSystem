@@ -2,10 +2,6 @@ package in.cutm.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -42,9 +38,15 @@ public class AddRoomServlet extends HttpServlet {
 		int roomId = Integer.parseInt(roomIdStr);
 		int capacity = Integer.parseInt(capacityStr);
 		double price = Double.parseDouble(priceStr);
-		InputStream photo = photoStr.getInputStream();
 		
-		Room rm = new Room(location, roomId, category, capacity, price, ac, meal, wifi, couple, parking, photo, status);
+		 byte[] imageBytes = null;
+	        if (photoStr != null && photoStr.getSize() > 0) {
+	            try (InputStream inputStream = photoStr.getInputStream()) {
+	                imageBytes = inputStream.readAllBytes();
+	            }
+	        }
+		
+		Room rm = new Room(location, roomId, category, capacity, price, ac, meal, wifi, couple, parking, imageBytes, status);
 		
 		RoomDao daoRoom = new RoomDao(ConnectDB.dbconnect());
 		
