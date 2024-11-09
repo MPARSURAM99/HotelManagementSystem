@@ -115,46 +115,13 @@
                     <td data-label="Payment Status">Paid</td>
                     <td data-label="Status">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success btn-sm">Check-in</button>
                             
-                            <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                            <button type="button" class="btn btn-primary btn-sm">Check-out</button>
+                            
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td data-label="ID">2</td>
-                    <td data-label="Customer Name">Jane Smith</td>
-                    <td data-label="Phone Number">234-567-8901</td>
-                    <td data-label="Location">Los Angeles</td>
-                    <td data-label="From">2024-11-02</td>
-                    <td data-label="To">2024-11-06</td>
-                    <td data-label="Amount">$700</td>
-                    <td data-label="Payment Status">Pending</td>
-                    <td data-label="Status">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success btn-sm">Check-in</button>
-                            
-                            <button type="button" class="btn btn-danger btn-sm">Cancel</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="ID">3</td>
-                    <td data-label="Customer Name">Robert Brown</td>
-                    <td data-label="Phone Number">345-678-9012</td>
-                    <td data-label="Location">Chicago</td>
-                    <td data-label="From">2024-11-03</td>
-                    <td data-label="To">2024-11-07</td>
-                    <td data-label="Amount">$450</td>
-                    <td data-label="Payment Status">Paid</td>
-                    <td data-label="Status">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success btn-sm">Check-in</button>
-                            
-                            <button type="button" class="btn btn-danger btn-sm">Cancel</button>
-                        </div>
-                    </td>
-                </tr>
+               
             </tbody>
         </table>
     </div>
