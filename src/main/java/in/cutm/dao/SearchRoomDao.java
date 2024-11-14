@@ -63,9 +63,11 @@ public class SearchRoomDao {
 			if (rs.next()) {
 				rm = new Room();
 				
-				rm.setRoomId(rs.getInt(3));
 				rm.setLocation(rs.getString(2));
+				rm.setRoomId(rs.getInt(3));
 				rm.setCategory(rs.getString(4));
+				rm.setCapacity(rs.getInt(5));
+				rm.setPrice(rs.getDouble(6));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

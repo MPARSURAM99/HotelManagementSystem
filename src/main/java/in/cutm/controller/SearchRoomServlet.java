@@ -15,30 +15,21 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/searchRoom")
 public class SearchRoomServlet extends HttpServlet{
 	
-	public Date convertToSqlDate(String dateStr) throws ParseException{
-		SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy");
-		java.util.Date utiDate = inputFormat.parse(dateStr);
-		
-		return new java.sql.Date(utiDate.getTime());
-	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		javax.servlet.http.HttpSession session = req.getSession();
 		String fromDateStr = req.getParameter("fromDate");
 		String toDateStr = req.getParameter("toDate");
+		session.setAttribute("fromDate", fromDateStr);
+		session.setAttribute("toDate", toDateStr);
 		String location = req.getParameter("location");
 		
 		
-			try {
-				Date fromDate = convertToSqlDate(fromDateStr);
-				Date toDate = convertToSqlDate(toDateStr);
-				
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+
 			
 		
-		
+			
 		
 		resp.sendRedirect("availableRoom.jsp");
 		

@@ -45,7 +45,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-start">
               <li><a class="dropdown-item" href="searchRoom.jsp">Book Now</a></li>
-              <li><a class="dropdown-item" href="bookingDetails.jsp">Booking details</a></li>
+              <li><a class="dropdown-item" href="checkBookings.jsp">Booking details</a></li>
             </ul>
           </div>
           <div class="btn-group me-5 text-dark">
