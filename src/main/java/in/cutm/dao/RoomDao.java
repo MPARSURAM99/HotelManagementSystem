@@ -2,6 +2,9 @@ package in.cutm.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import in.cutm.model.Room;
 
@@ -29,7 +32,7 @@ public class RoomDao {
 			ps.setString(8, roomDetails.getWifi());
 			ps.setString(9, roomDetails.getCouple());
 			ps.setString(10, roomDetails.getParking());
-			ps.setBlob(11, roomDetails.getPhoto());
+			ps.setBytes(11, roomDetails.getPhoto());
 			ps.setString(12, roomDetails.getStatus());
 			
 			int row = ps.executeUpdate();
@@ -45,4 +48,6 @@ public class RoomDao {
 		
 		return isAdded;
 	}
+	
+
 }
