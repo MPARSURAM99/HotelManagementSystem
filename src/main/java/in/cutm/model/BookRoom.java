@@ -102,6 +102,7 @@ public class BookRoom {
 	public void setCheckinStatus(String checkinStatus) {
 		this.checkinStatus = checkinStatus;
 	}
+
 	
 	
 }
