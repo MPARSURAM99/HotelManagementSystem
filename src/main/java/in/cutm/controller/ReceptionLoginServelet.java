@@ -22,11 +22,13 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	javax.servlet.http.HttpSession session =  req.getSession();
 	String receptionLoction = req.getParameter("receptionLocation");
 	String receptionPassword = req.getParameter("receptionPassword");
+
 	
 	ReceptionCredential addCred = new ReceptionCredential(receptionLoction, receptionPassword);
 	ReceptionCredentialDao daoReception = new ReceptionCredentialDao(ConnectDB.dbconnect());
 	
 	if (daoReception.isLoginSuccessful(addCred)) {
+		session.setAttribute("receptionLocation", receptionLoction);
 		resp.sendRedirect("receptionistDashboard.jsp");
 	} else {
 		session.setAttribute("loginFailMsg", "Invalid Credential....!");
