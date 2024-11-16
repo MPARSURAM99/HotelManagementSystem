@@ -8,8 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-
+import java.util.TimeZone;
 
 import in.cutm.model.BookRoom;
 
@@ -55,14 +54,19 @@ public class BookRoomDao {
 	
 	public List<BookRoom> displayTodayBooking(String resLoc){
 		List<BookRoom> bookings = new ArrayList<BookRoom>(); 
-		Date today = new Date(Calendar.getInstance().getTimeInMillis());
+        // Set the desired time zone explicitly
+        TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
+        Calendar calendar = Calendar.getInstance();
+
+        // Get today's date
+        Date today = new Date(calendar.getTimeInMillis());
 		
 		try {
 			String showBookingQuery = "SELECT * FROM bookings WHERE location = ? AND from_date = ? AND checkin_status = ?";
 			PreparedStatement ps = con.prepareStatement(showBookingQuery);
 			ps.setString(1, resLoc);
 			ps.setDate(2, today);
-			ps.setString(3, "bookde");
+			ps.setString(3, "Bookde");
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -76,7 +80,6 @@ public class BookRoomDao {
 				bookDetails.setToDate(rs.getDate(3));
 				bookDetails.setRoomPrice(rs.getDouble(6));
 				bookings.add(bookDetails);
-				System.out.println(resLoc + today);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

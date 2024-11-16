@@ -153,6 +153,8 @@ body {
 					</tr>
 					<%
 					}
+					
+					System.out.println(newBookings);
 					%>
 
 

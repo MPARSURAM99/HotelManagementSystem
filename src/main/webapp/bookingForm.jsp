@@ -44,7 +44,12 @@ h1 {
 	<%@include file="component/commonNavBar.jsp"%>
 
 	<%
-	int roomId = Integer.parseInt(request.getParameter("id"));
+	String roomIdParam = request.getParameter("id");
+	if (roomIdParam == null || roomIdParam.isEmpty()) {
+	    out.println("Error: Room ID is missing.");
+	    return;
+	}
+	int roomId = Integer.parseInt(roomIdParam);
 	SearchRoomDao srhRmDao = new SearchRoomDao(ConnectDB.dbconnect());
 	Room rm = srhRmDao.getRoomById(roomId);
 	%>
