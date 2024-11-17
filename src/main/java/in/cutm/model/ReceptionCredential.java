@@ -10,8 +10,16 @@ public class ReceptionCredential {
 		super();
 		
 	}
-
 	
+	
+	
+	public ReceptionCredential(String receptionLocation) {
+		super();
+		this.receptionLocation = receptionLocation;
+	}
+
+
+
 	public ReceptionCredential(String receptionLocation, String receptionPassword) {
 		super();
 		this.receptionLocation = receptionLocation;
