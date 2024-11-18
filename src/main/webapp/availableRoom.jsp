@@ -1,3 +1,10 @@
+<%@page import="in.cutm.dao.SearchRoomDao"%>
+<%@page import="java.util.Base64"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="in.cutm.model.Room"%>
+<%@page import="java.util.List"%>
+<%@page import="in.cutm.dbConnection.ConnectDB"%>
+<%@page import="in.cutm.dao.RoomDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,173 +23,66 @@
 	<section>
 		<h1 class="text-center">Available Rooms</h1>
 		<div class="row row-cols-1 row-cols-md-3 g-4 p-4">
-			<div class="col">
-				<div class="card h-100">
-					<img src="" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h1 class="text-primary">
-							<i class="fa-solid fa-indian-rupee-sign"></i> <span>2500</span>
-							/Night
-						</h1>
-						<h6>
-							Location : <span>Cuttack</span>
-						</h6>
-						<h6>
-							Room id : <span>1024</span>
-						</h6>
-						<h6>
-							Category : <span>Suite</span>
-						</h6>
-						<h6>
-							Capacity : <span>5</span>
-						</h6>
-						<h6>
-							AC : <span>Available</span>
-						</h6>
-						<h6>
-							Meal : <span>Abailable</span>
-						</h6>
-						<h6>
-							Wifi : <span>Available</span>
-						</h6>
-						<h6>
-							couple : <span>Allowed</span>
-						</h6>
-						<h6>
-							Parking : <span>Allowed</span>
-						</h6>
-					</div>
-					<div class="card-footer">
-						<button class="btn btn-primary w-100">Book now</button>
-					</div>
-				</div>
-			</div>
 
-			<div class="col">
-				<div class="card h-100">
-					<img src="" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h1 class="text-primary">
-							<i class="fa-solid fa-indian-rupee-sign"></i> <span>2500</span>
-							/Night
-						</h1>
-						<h6>
-							Location : <span>Cuttack</span>
-						</h6>
-						<h6>
-							Room id : <span>1024</span>
-						</h6>
-						<h6>
-							Category : <span>Suite</span>
-						</h6>
-						<h6>
-							Capacity : <span>5</span>
-						</h6>
-						<h6>
-							AC : <span>Available</span>
-						</h6>
-						<h6>
-							Meal : <span>Abailable</span>
-						</h6>
-						<h6>
-							Wifi : <span>Available</span>
-						</h6>
-						<h6>
-							couple : <span>Allowed</span>
-						</h6>
-						<h6>
-							Parking : <span>Allowed</span>
-						</h6>
-					</div>
-					<div class="card-footer">
-						<button class="btn btn-primary w-100">Book now</button>
-					</div>
-				</div>
-			</div>
+			<%
+			SearchRoomDao srhRmDao = new SearchRoomDao(ConnectDB.dbconnect());
+			List<Room> rmList = srhRmDao.displayAvailableRoom();
 
+			for (Room rm : rmList) {
+			%>
 			<div class="col">
 				<div class="card h-100">
-					<img src="" class="card-img-top" alt="..." />
+					<div style="display: flex; align-items: center; justify-content: center;">
+						<img
+						src="data:image/jpg;base64,<%=new String(java.util.Base64.getEncoder().encode(rm.getPhoto()))%>"
+						class="rounded float-start img-thumbnail p-2" alt="Room Image"
+						style="object-fit: contain; height: 200px; width: 100%; text-align: center;" />
+					</div>
 					<div class="card-body">
 						<h1 class="text-primary">
-							<i class="fa-solid fa-indian-rupee-sign"></i> <span>2500</span>
+							<i class="fa-solid fa-indian-rupee-sign"></i> <span><%=rm.getPrice()%></span>
 							/Night
 						</h1>
 						<h6>
-							Location : <span>Cuttack</span>
+							Location : <span><%=rm.getLocation()%></span>
 						</h6>
 						<h6>
-							Room id : <span>1024</span>
+							Room id : <span><%=rm.getRoomId()%></span>
 						</h6>
 						<h6>
-							Category : <span>Suite</span>
+							Category : <span><%=rm.getCategory()%></span>
 						</h6>
 						<h6>
-							Capacity : <span>5</span>
+							Capacity : <span><%=rm.getCapacity()%></span>
 						</h6>
 						<h6>
-							AC : <span>Available</span>
+							AC : <span><%=rm.getAc()%></span>
 						</h6>
 						<h6>
-							Meal : <span>Abailable</span>
+							Meal : <span><%=rm.getMeal()%></span>
 						</h6>
 						<h6>
-							Wifi : <span>Available</span>
+							Wifi : <span><%=rm.getWifi()%></span>
 						</h6>
 						<h6>
-							couple : <span>Allowed</span>
+							couple : <span><%=rm.getCouple()%></span>
 						</h6>
 						<h6>
-							Parking : <span>Allowed</span>
+							Parking : <span><%=rm.getParking()%></span>
 						</h6>
 					</div>
 					<div class="card-footer">
-						<button class="btn btn-primary w-100">Book now</button>
+						<a href="bookingForm.jsp?id=<%=rm.getRoomId() %>"><button class="btn btn-primary w-100">Book now</button></a>
 					</div>
 				</div>
 			</div>
+			<%
+			}
+			%>
 
-			<div class="col">
-				<div class="card h-100">
-					<img src="" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h1 class="text-primary">
-							<i class="fa-solid fa-indian-rupee-sign"></i> <span>2500</span>
-							/Night
-						</h1>
-						<h6>
-							Location : <span>Cuttack</span>
-						</h6>
-						<h6>
-							Room id : <span>1024</span>
-						</h6>
-						<h6>
-							Category : <span>Suite</span>
-						</h6>
-						<h6>
-							Capacity : <span>5</span>
-						</h6>
-						<h6>
-							AC : <span>Available</span>
-						</h6>
-						<h6>
-							Meal : <span>Abailable</span>
-						</h6>
-						<h6>
-							Wifi : <span>Available</span>
-						</h6>
-						<h6>
-							couple : <span>Allowed</span>
-						</h6>
-						<h6>
-							Parking : <span>Allowed</span>
-						</h6>
-					</div>
-					<div class="card-footer">
-						<button class="btn btn-primary w-100">Book now</button>
-					</div>
-				</div>
-			</div>
+
+
+
 		</div>
 	</section>
 

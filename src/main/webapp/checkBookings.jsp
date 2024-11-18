@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ include file="component/jstlTag.jsp"%>
+
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="component/bootStrapLink.jsp"%>
 <%@ include file="component/fontAwesome.jsp"%>
+
 <style>
 body {
 	font-family: 'Arial', sans-serif;
@@ -33,38 +35,22 @@ body {
 	color: #0d6efd;
 }
 </style>
-
 </head>
-
 <body>
-	<%@include file="component/commonNavBar.jsp"%>
-
-	<%@ include file="component/adminTab.jsp"%>
+	<%@ include file="component/commonNavBar.jsp" %>
 	<div class="container">
 		<div class="form-container">
-			<h3 class="text-center mb-4">Add New Branch</h3>
-
-			<c:if test="${not empty addLocMsg }">
-				<p class="text-center text-success">${addLocMsg}</p>
-				<c:remove var="addLocMsg" />
-			</c:if>
+			<h3 class="text-center mb-4">Booking Details</h3>
 
 			<c:if test="${not empty addRoomFailMsg }">
 				<p class="text-center text-success">${addRoomFailMsg}</p>
 				<c:remove var="addRoomFailMsg" />
 			</c:if>
-			<form action="addBranch" method="post">
+			<form action="bookingInformation" method="post">
 
 				<div class="form-group mb-3">
-					<label for="branchName"></label> <input type="text"
-						class="form-control" id="branchName" name="branchName"
-						placeholder="Enter branch name" required>
-				</div>
-				
-				<div class="form-group mb-3">
-						<input type="text"
-						class="form-control" id="branchName" name="brancPassword"
-						placeholder="Enter branch password" required>
+					<input type="tel" class="form-control" id="branchName"
+						name="mobNumber" placeholder="Enter mobile number" required>
 				</div>
 
 				<div class="text-center">
@@ -73,7 +59,5 @@ body {
 			</form>
 		</div>
 	</div>
-
 </body>
-
 </html>
