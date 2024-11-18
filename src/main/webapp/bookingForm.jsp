@@ -121,7 +121,7 @@ h1 {
 							<br>
 							<div class="form-group form-inline">
 								<input type="hidden" name="checkinStatus" class="form-control"
-									value="Bookde">
+									value="booked">
 							</div>
 							<div class="d-flex justify-content-center mt-4">
 								<button type="submit" class="btn btn-primary w-100">Book</button>

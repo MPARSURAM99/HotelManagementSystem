@@ -6,6 +6,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="in.cutm.model.BookRoom"%>
+<%@ include file="component/jstlTag.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,8 +103,16 @@ body {
 <body>
 	<div class="container mt-5">
 		<h2 class="text-center mb-4">Upcoming Bookings</h2>
-
-		<!-- Display error message if any -->
+		<c:if test="${not empty successCancelMsg }">
+			<p class="text-center text-success">${successCancelMsg}</p>
+			<c:remove var="successCancelMsg" />
+		</c:if>
+		
+		
+		<c:if test="${not empty checkinMsg }">
+			<p class="text-center text-success">${checkinMsg}</p>
+			<c:remove var="checkinMsg" />
+		</c:if>
 		<%
 		String errorMessage = (String) request.getAttribute("errorMessage");
 		if (errorMessage != null) {
@@ -145,9 +154,10 @@ body {
 						<td data-label="Amount"><%=booking.getRoomPrice()%></td>
 						<td data-label="Actions">
 							<div class="btn-group" role="group">
-								<a href="upComming.jsp/?roomId"><button type="button"
+								<a href="checkin?id=<%= booking.getRoomId() %>"><button type="button"
 										class="btn btn-success btn-sm">Check-in</button></a>
-								<button type="button" class="btn btn-danger btn-sm">Cancel</button>
+								<a href="delete?id=<%= booking.getRoomId() %>"><button type="button"
+										class="btn btn-danger btn-sm">Cancel</button></a>
 							</div>
 						</td>
 					</tr>

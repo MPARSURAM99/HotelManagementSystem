@@ -66,7 +66,7 @@ public class BookRoomServlet extends HttpServlet {
 				session.setAttribute("bookingNames", userName);
 				session.setAttribute("bookingSuccessMsg",
 						"Room No. " + roomId + " is booked successfully at " + location);
-				resp.sendRedirect("bookingDetails.jsp");
+				resp.sendRedirect("checkBookings.jsp");
 			} else {
 				session.setAttribute("bookingFailMsg", "Booking failed, please try again.");
 				resp.sendRedirect("bookingForm.jsp");

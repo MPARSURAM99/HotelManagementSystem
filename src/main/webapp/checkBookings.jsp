@@ -42,9 +42,9 @@ body {
 		<div class="form-container">
 			<h3 class="text-center mb-4">Booking Details</h3>
 
-			<c:if test="${not empty addRoomFailMsg }">
-				<p class="text-center text-success">${addRoomFailMsg}</p>
-				<c:remove var="addRoomFailMsg" />
+			<c:if test="${not empty bookingSuccessMsg }">
+				<p class="text-center text-success">${bookingSuccessMsg}</p>
+				<c:remove var="bookingSuccessMsg" />
 			</c:if>
 			<form action="bookingInformation" method="post">
 
@@ -54,7 +54,7 @@ body {
 				</div>
 
 				<div class="text-center">
-					<button type="submit" class="btn btn-primary">Add Branch</button>
+					<button type="submit" class="btn btn-primary">Show Bookings</button>
 				</div>
 			</form>
 		</div>

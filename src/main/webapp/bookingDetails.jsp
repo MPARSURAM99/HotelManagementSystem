@@ -53,7 +53,7 @@
 							<small class="text-muted">Check in : <%=br.getFromDate()%></small>
 							<br> <small class="text-muted">Check out : <%=br.getToDate()%></small>
 						</p>
-						<a href="bookingDetails.jsp?id=<%= br.getRoomId() %>"><button class="btn btn-danger w-100">Cancel
+						<a href="delete?id=<%= br.getRoomId() %>"><button class="btn btn-danger w-100">Cancel
 								Booking</button></a>
 					</div>
 				</div>

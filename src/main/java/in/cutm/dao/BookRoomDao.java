@@ -67,7 +67,7 @@ public class BookRoomDao {
 			PreparedStatement ps = con.prepareStatement(showBookingQuery);
 			ps.setString(1, resLoc);
 			ps.setDate(2, today);
-			ps.setString(3, "Bookde");
+			ps.setString(3, "booked");
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -115,7 +115,7 @@ public class BookRoomDao {
 		return bookingInfo;
 	}
 	
-	public boolean cancelBookingById(int id) {
+	public boolean isCancelBookingById(int id) {
 		boolean isCancel = false;
 		
 		try {
@@ -133,5 +133,26 @@ public class BookRoomDao {
 		}
 		
 		return isCancel;
+	}
+	
+	public boolean isCheckedIn(int id) {
+		boolean isCheckedIn = false;
+		try {
+			String checkinQuery = "update bookings set checkin_status = ? where room_id =? ";
+			PreparedStatement ps = con.prepareStatement(checkinQuery);
+			ps.setString(1, "checked");
+			ps.setInt(2, id);
+			
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				isCheckedIn = true;
+			} else {
+				isCheckedIn = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return isCheckedIn;
 	}
 }
