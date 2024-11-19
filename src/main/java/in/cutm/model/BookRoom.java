@@ -31,6 +31,13 @@ public class BookRoom {
 		this.checkinStatus = checkinStatus;
 	}
 
+	
+	
+	public BookRoom(String contact) {
+		super();
+		this.contact = contact;
+	}
+
 	public int getId() {
 		return id;
 	}

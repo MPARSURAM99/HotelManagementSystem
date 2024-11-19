@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import in.cutm.model.BookRoom;
+import jakarta.servlet.http.HttpSession;
 
 public class BookRoomDao {
 	private Connection con;
@@ -86,5 +87,51 @@ public class BookRoomDao {
 		}
 		
 		return bookings;
+	}
+	
+	public List<BookRoom> showBookingByContact(String contact){
+		List<BookRoom> bookingInfo = new ArrayList<BookRoom>();
+		
+		try {
+			String displayRoomByContactQuery = "SELECT * FROM bookings WHERE contact=?";
+			PreparedStatement ps = con.prepareStatement(displayRoomByContactQuery);
+			ps.setString(1, contact);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				BookRoom booking = new BookRoom();
+				booking.setRoomId(rs.getInt(5));
+				booking.setName(rs.getString(7));
+				booking.setLocation(rs.getString(4));
+				booking.setRoomPrice(rs.getDouble(6));
+				booking.setFromDate(rs.getDate(2));
+				booking.setToDate(rs.getDate(3));
+				bookingInfo.add(booking);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return bookingInfo;
+	}
+	
+	public boolean cancelBookingById(int id) {
+		boolean isCancel = false;
+		
+		try {
+			String cancelQuery = "DELETE FROM bookings WHERE room_id =?";
+			PreparedStatement ps = con.prepareStatement(cancelQuery);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if (i == 1) {
+				isCancel = true;
+			} else {
+				isCancel = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isCancel;
 	}
 }
